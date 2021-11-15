@@ -1,32 +1,33 @@
 package com.mkasprowiczdev.filmbase.actor;
 
+import com.mkasprowiczdev.filmbase.actor.Actor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedList;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/actor")
 public class ActorController {
 
     @Autowired
     ActorService actorService;
 
-    @GetMapping("/api/actor")
+    @GetMapping("/all")
     public LinkedList<Actor> getActors() {
         return actorService.getActors();
     }
-
-    @GetMapping("/api/actor/{id}")
-    public Optional<Actor> getActor(long Id) {
+    
+    @GetMapping("/{id}")
+    public Actor getActor(long Id) {
         return actorService.getActor(Id);
     }
 
-    @PostMapping(value = "/api/actor/{actor}")
+    @PostMapping("/add")
     public void addActor(@RequestBody Actor actor) {
         actorService.addActor(actor);
     }
+
+    // TODO: 15.11.2021 put and delete 
 }

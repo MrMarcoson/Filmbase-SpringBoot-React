@@ -12,7 +12,7 @@ import java.util.Set;
 public class Actor {
 
     enum genderType {
-        MALE, FEMALE, OTHER;
+        MALE, FEMALE, OTHER
     }
 
     @Id
@@ -24,14 +24,22 @@ public class Actor {
     private String PlaceOfBirth;
     private genderType Gender;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "film")
     private Set<FilmCast> filmCast = new HashSet<>();
 
     public Actor() {
     }
 
-    public Actor(long id, String name, String secondName, int dateOfBirth, String placeOfBirth, genderType gender, Set<FilmCast> filmCast) {
-        Id = id;
+    public Actor(String name, String secondName, int dateOfBirth, String placeOfBirth, genderType gender) {
+        Name = name;
+        SecondName = secondName;
+        DateOfBirth = dateOfBirth;
+        PlaceOfBirth = placeOfBirth;
+        Gender = gender;
+    }
+
+    public Actor(String name, String secondName, int dateOfBirth, String placeOfBirth, genderType gender, Set<FilmCast> filmCast) {
         Name = name;
         SecondName = secondName;
         DateOfBirth = dateOfBirth;

@@ -14,11 +14,11 @@ public class ActorService {
 
     public LinkedList<Actor> getActors() {
         LinkedList<Actor> actors = new LinkedList<>();
-        actorRepository.findAll().forEach(actors::add);
+        actors.addAll(actorRepository.findAll());
         return actors;
     }
 
-    public Optional<Actor> getActor(long Id) {
+    public Actor getActor(long Id) {
         return actorRepository.findById(Id);
     }
 

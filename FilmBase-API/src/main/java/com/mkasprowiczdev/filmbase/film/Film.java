@@ -1,5 +1,6 @@
 package com.mkasprowiczdev.filmbase.film;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mkasprowiczdev.filmbase.filmcast.FilmCast;
 import com.mkasprowiczdev.filmbase.filmgrades.FilmGrades;
 
@@ -17,6 +18,7 @@ public class Film {
     private int PremiereDate;
     private String description;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "film")
     private Set<FilmCast> filmCast = new HashSet<>();
 
@@ -26,8 +28,13 @@ public class Film {
     public Film() {
     }
 
-    public Film(long id, String title, int premiereDate, String description, Set<FilmCast> filmCast, Set<FilmGrades> filmGrade) {
-        Id = id;
+    public Film(String title, int premiereDate, String description) {
+        Title = title;
+        PremiereDate = premiereDate;
+        this.description = description;
+    }
+
+    public Film(String title, int premiereDate, String description, Set<FilmCast> filmCast, Set<FilmGrades> filmGrade) {
         Title = title;
         PremiereDate = premiereDate;
         this.description = description;

@@ -20,11 +20,11 @@ public class FilmService {
     public LinkedList<Film> getFilms()
     {
         LinkedList<Film> films = new LinkedList<>();
-        filmRepository.findAll().forEach(films::add);
+        films.addAll(filmRepository.findAll());
         return films;
     }
 
-    public Optional<Film> getFilm(long Id){
+    public Film getFilm(long Id){
         return filmRepository.findById(Id);
     }
 

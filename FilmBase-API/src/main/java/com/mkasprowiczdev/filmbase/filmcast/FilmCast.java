@@ -4,8 +4,6 @@ import com.mkasprowiczdev.filmbase.actor.Actor;
 import com.mkasprowiczdev.filmbase.film.Film;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class FilmCast {
