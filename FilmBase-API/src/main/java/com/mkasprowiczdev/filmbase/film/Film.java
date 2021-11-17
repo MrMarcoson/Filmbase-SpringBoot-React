@@ -22,6 +22,7 @@ public class Film {
     @OneToMany(mappedBy = "film")
     private Set<FilmCast> filmCast = new HashSet<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "film")
     private Set<FilmGrades> filmGrade = new HashSet<>();
 

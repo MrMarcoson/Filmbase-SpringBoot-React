@@ -18,6 +18,10 @@ public class UserService {
         return users;
     }
 
+    public User getUser(long id) {
+        return userRepository.getById(id);
+    }
+
     void addUser(User user) {
         userRepository.save(user);
     }

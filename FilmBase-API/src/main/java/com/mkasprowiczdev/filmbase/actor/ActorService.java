@@ -13,8 +13,7 @@ public class ActorService {
     ActorRepository actorRepository;
 
     public LinkedList<Actor> getActors() {
-        LinkedList<Actor> actors = new LinkedList<>();
-        actors.addAll(actorRepository.findAll());
+        LinkedList<Actor> actors = new LinkedList<>(actorRepository.findAll());
         return actors;
     }
 

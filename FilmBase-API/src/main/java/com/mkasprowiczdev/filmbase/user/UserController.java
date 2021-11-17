@@ -1,8 +1,5 @@
 package com.mkasprowiczdev.filmbase.user;
 
-import com.mkasprowiczdev.filmbase.film.Film;
-import com.mkasprowiczdev.filmbase.filmgrades.FilmGrades;
-import com.mkasprowiczdev.filmbase.filmgrades.FilmGradesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,21 +12,20 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @Autowired
-    FilmGradesService filmGradesService;
-
     @GetMapping("/all")
     LinkedList<User> getUsers() {
         return userService.getUsers();
     }
 
-    @PostMapping(value = "user")
+    @GetMapping("/{Id}")
+    User getUser(@PathVariable long Id) {
+        return userService.getUser(Id);
+    }
+
+    @PostMapping("/add")
     void addUser(@RequestBody User user) {
         userService.addUser(user);
     }
 
-    @PostMapping("/{user}/{film}/{grade}")
-    void addFilmGrade(@RequestBody User user, @RequestBody Film film, @RequestBody int grade) {
-        filmGradesService.addFilmGrade(user, film, grade);
-    }
+    // TODO: 15.11.2021 put, delete, change adding film grades
 }

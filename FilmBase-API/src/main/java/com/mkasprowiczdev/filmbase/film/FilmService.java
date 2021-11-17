@@ -19,8 +19,7 @@ public class FilmService {
 
     public LinkedList<Film> getFilms()
     {
-        LinkedList<Film> films = new LinkedList<>();
-        films.addAll(filmRepository.findAll());
+        LinkedList<Film> films = new LinkedList<>(filmRepository.findAll());
         return films;
     }
 

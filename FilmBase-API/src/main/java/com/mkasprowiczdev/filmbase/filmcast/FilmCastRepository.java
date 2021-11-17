@@ -2,6 +2,7 @@ package com.mkasprowiczdev.filmbase.filmcast;
 
 import com.mkasprowiczdev.filmbase.film.Film;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.LinkedList;
 

@@ -23,8 +23,7 @@ public class FilmCastService {
     ActorService actorService;
 
     public LinkedList<FilmCast> getFilmsCast() {
-        LinkedList<FilmCast> filmsCast = new LinkedList<>();
-        filmsCast.addAll(filmCastRepository.findAll());
+        LinkedList<FilmCast> filmsCast = new LinkedList<>(filmCastRepository.findAll());
         return filmsCast;
     }
 
