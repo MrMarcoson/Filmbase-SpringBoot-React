@@ -5,7 +5,7 @@ import com.mkasprowiczdev.filmbase.user.User;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "filmgrades")
 public class FilmGrades {
 
     @Id
@@ -13,11 +13,11 @@ public class FilmGrades {
     private long Id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "film_id")
+    @JoinColumn(name = "film")
     private Film film;
 
     private int grade;

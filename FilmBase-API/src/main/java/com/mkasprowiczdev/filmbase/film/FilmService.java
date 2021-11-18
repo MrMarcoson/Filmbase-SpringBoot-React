@@ -5,6 +5,7 @@ import com.mkasprowiczdev.filmbase.actor.ActorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.LinkedList;
 import java.util.Optional;
 
@@ -29,5 +30,10 @@ public class FilmService {
 
     public void addFilm(Film film){
         filmRepository.save(film);
+    }
+
+    @Transactional
+    public void setFilmAVG(long filmId, double avg) {
+        filmRepository.setFilmAVG(filmId, avg);
     }
 }

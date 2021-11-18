@@ -21,8 +21,9 @@ public class FilmController {
         return filmService.getFilms();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{Id}")
     public Film getFilm(@PathVariable long Id) {
+        System.out.println("ELO" + Id);
         return filmService.getFilm(Id);
     }
 

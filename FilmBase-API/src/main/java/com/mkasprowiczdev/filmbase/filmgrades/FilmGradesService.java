@@ -21,25 +21,37 @@ public class FilmGradesService {
     @Autowired
     UserService userService;
 
-    //todo check if it can be done to search by filmId in filmGrades table (many to many table)
+    public double calculateAVG(LinkedList<FilmGrades> filmGrades) {
+        double grade = 0;
+
+        for (FilmGrades filmGrade : filmGrades) {
+            grade += filmGrade.getGrade();
+        }
+
+        return grade / filmGrades.size();
+    }
+
+    public void setNewAVG(Film film) {
+        LinkedList<FilmGrades> filmGrades = filmGradesRepository.findByFilm(film);
+        filmService.setFilmAVG(film.getId(), calculateAVG(filmGrades));
+    }
+
     public LinkedList<FilmGrades> getFilmGrades(long filmId) {
         Film film = filmService.getFilm(filmId);
         return filmGradesRepository.findByFilm(film);
     }
-
-    //to create ranking of movies todo make some kind of range (top 100 movies etc)
-    public LinkedList<FilmGrades> getFilmsWithGradesAVG() {
-        return filmGradesRepository.findAllWithGradeAVG();
-    }
-
-    public LinkedList<FilmGrades> getFilmWithGradesAVG(long filmId) {
+/*
+    public Film getFilmGradesAVG(long filmId) {
         Film film = filmService.getFilm(filmId);
-        return filmGradesRepository.findFilmWithGradeAVG(film);
+        LinkedList<FilmGrades> filmGrades = filmGradesRepository.findByFilm(film);
+        film.setAvgGrade(calculateAVG(filmGrades));
     }
-
+*/
+    //When grade is added, program calculates new film avg
     public void addGradeToFilm(long filmId, long userId, int grade) {
         Film film = filmService.getFilm(filmId);
         User user = userService.getUser(userId);
         filmGradesRepository.save(new FilmGrades(user, film, grade));
+        setNewAVG(film);
     }
 }

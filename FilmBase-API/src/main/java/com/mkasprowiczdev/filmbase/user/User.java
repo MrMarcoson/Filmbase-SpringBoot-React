@@ -1,5 +1,6 @@
 package com.mkasprowiczdev.filmbase.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mkasprowiczdev.filmbase.film.Film;
 import com.mkasprowiczdev.filmbase.filmgrades.FilmGrades;
 
@@ -7,7 +8,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity(name = "user")
 public class User {
 
     @Id
@@ -18,6 +19,7 @@ public class User {
     private String email;
 
     //films values
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     Set<FilmGrades> filmGrades = new HashSet<>();
 
@@ -26,6 +28,13 @@ public class User {
 
     public User(long id, String username, String password, String email, Set<FilmGrades> filmGrades) {
         Id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.filmGrades = filmGrades;
+    }
+
+    public User(String username, String password, String email, Set<FilmGrades> filmGrades) {
         this.username = username;
         this.password = password;
         this.email = email;

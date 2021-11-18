@@ -8,15 +8,16 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity(name = "film")
 public class Film {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
-    private String Title;
-    private int PremiereDate;
+    private String title;
+    private int premiereDate;
     private String description;
+    private double avgGrade;
 
     @JsonIgnore
     @OneToMany(mappedBy = "film")
@@ -30,15 +31,35 @@ public class Film {
     }
 
     public Film(String title, int premiereDate, String description) {
-        Title = title;
-        PremiereDate = premiereDate;
+        this.title = title;
+        this.premiereDate = premiereDate;
         this.description = description;
     }
 
-    public Film(String title, int premiereDate, String description, Set<FilmCast> filmCast, Set<FilmGrades> filmGrade) {
-        Title = title;
-        PremiereDate = premiereDate;
+    public Film(String title, int premiereDate, String description, Set<FilmCast> filmCast, Set<FilmGrades> filmGrade, double avgGrade) {
+        this.title = title;
+        this.premiereDate = premiereDate;
         this.description = description;
+        this.filmCast = filmCast;
+        this.filmGrade = filmGrade;
+        this.avgGrade = avgGrade;
+    }
+
+    public Film(String title, int premiereDate, String description, Set<FilmCast> filmCast, Set<FilmGrades> filmGrade) {
+        this.title = title;
+        this.premiereDate = premiereDate;
+        this.description = description;
+        this.filmCast = filmCast;
+        this.filmGrade = filmGrade;
+        this.avgGrade = 0;
+    }
+
+    public Film(long id, String title, int premiereDate, String description, double avgGrade, Set<FilmCast> filmCast, Set<FilmGrades> filmGrade) {
+        Id = id;
+        this.title = title;
+        this.premiereDate = premiereDate;
+        this.description = description;
+        this.avgGrade = avgGrade;
         this.filmCast = filmCast;
         this.filmGrade = filmGrade;
     }
@@ -52,19 +73,19 @@ public class Film {
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public int getPremiereDate() {
-        return PremiereDate;
+        return premiereDate;
     }
 
     public void setPremiereDate(int premiereDate) {
-        PremiereDate = premiereDate;
+        this.premiereDate = premiereDate;
     }
 
     public String getDescription() {
@@ -89,5 +110,13 @@ public class Film {
 
     public void setFilmGrade(Set<FilmGrades> filmGrade) {
         this.filmGrade = filmGrade;
+    }
+
+    public double getAvgGrade() {
+        return avgGrade;
+    }
+
+    public void setAvgGrade(double avgGrade) {
+        this.avgGrade = avgGrade;
     }
 }

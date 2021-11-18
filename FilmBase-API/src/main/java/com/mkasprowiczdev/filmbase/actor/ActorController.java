@@ -20,7 +20,7 @@ public class ActorController {
     }
     
     @GetMapping("/{id}")
-    public Actor getActor(long Id) {
+    public Actor getActor(@PathVariable long Id) {
         return actorService.getActor(Id);
     }
 
