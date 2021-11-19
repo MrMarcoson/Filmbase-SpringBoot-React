@@ -23,8 +23,12 @@ public class FilmController {
 
     @GetMapping("/{Id}")
     public Film getFilm(@PathVariable long Id) {
-        System.out.println("ELO" + Id);
         return filmService.getFilm(Id);
+    }
+
+    @GetMapping("/ranking/{page}")
+    public LinkedList<Film> getRankingRange(@PathVariable int page) {
+        return filmService.getFilmRanking(page);
     }
 
     @PostMapping("/add")

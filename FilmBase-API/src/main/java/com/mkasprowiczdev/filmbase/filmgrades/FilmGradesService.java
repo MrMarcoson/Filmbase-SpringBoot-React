@@ -40,17 +40,12 @@ public class FilmGradesService {
         Film film = filmService.getFilm(filmId);
         return filmGradesRepository.findByFilm(film);
     }
-/*
-    public Film getFilmGradesAVG(long filmId) {
-        Film film = filmService.getFilm(filmId);
-        LinkedList<FilmGrades> filmGrades = filmGradesRepository.findByFilm(film);
-        film.setAvgGrade(calculateAVG(filmGrades));
-    }
-*/
+
     //When grade is added, program calculates new film avg
     public void addGradeToFilm(long filmId, long userId, int grade) {
         Film film = filmService.getFilm(filmId);
         User user = userService.getUser(userId);
+        //todo verification so user can add only one grade per movie
         filmGradesRepository.save(new FilmGrades(user, film, grade));
         setNewAVG(film);
     }

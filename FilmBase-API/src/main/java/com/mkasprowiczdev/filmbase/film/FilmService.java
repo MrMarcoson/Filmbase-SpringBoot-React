@@ -1,13 +1,14 @@
 package com.mkasprowiczdev.filmbase.film;
 
-import com.mkasprowiczdev.filmbase.actor.Actor;
-import com.mkasprowiczdev.filmbase.actor.ActorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.LinkedList;
-import java.util.Optional;
 
 @Service
 public class FilmService {
@@ -15,17 +16,23 @@ public class FilmService {
     @Autowired
     FilmRepository filmRepository;
 
-    @Autowired
-    ActorRepository actorRepository;
-
     public LinkedList<Film> getFilms()
     {
-        LinkedList<Film> films = new LinkedList<>(filmRepository.findAll());
-        return films;
+        return new LinkedList<>(filmRepository.findAll());
     }
 
     public Film getFilm(long Id){
         return filmRepository.findById(Id);
+    }
+
+    public LinkedList<Film> getFilmRanking(int page) {
+        Pageable sortedByAVGGrade = PageRequest.of(page, 20, Sort.by("avgGrade").descending());
+        Page<Film> filmPage = filmRepository.findAll(sortedByAVGGrade);
+
+        LinkedList<Film> films = new LinkedList<>();
+        films.addAll(filmPage.getContent());
+
+        return films;
     }
 
     public void addFilm(Film film){
