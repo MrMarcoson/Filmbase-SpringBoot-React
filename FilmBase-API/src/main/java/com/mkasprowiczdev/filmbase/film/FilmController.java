@@ -8,6 +8,7 @@ import java.util.LinkedList;
 
 @RestController
 @RequestMapping("/api/film")
+@CrossOrigin
 public class FilmController {
 
     @Autowired
