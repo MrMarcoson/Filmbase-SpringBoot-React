@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Link , } from "react-router-dom";
+import Film from './Film';
 
-import Film from "./Film.jsx"
 //multiple films rendering in a list
 
-function FilmsHeader() {
+const FilmsHeader = () => {
   return (
     <Row>
       <Col>GRADE</Col>
@@ -19,7 +19,6 @@ function FilmsHeader() {
 function FilmDiv(props) {
   return (
     <Link to={`/film/${props.data.id}`}>
-      {console.log(props.data.id)}
       <Row>
           <Col>{props.data.avgGrade}</Col>
           <Col>{props.data.title}</Col>

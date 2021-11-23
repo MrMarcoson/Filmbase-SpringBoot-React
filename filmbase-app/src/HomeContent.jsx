@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function HomeContent() {
+const HomeContent = () => {
   return (
     <Container fluid>
       <Row>
