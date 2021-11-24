@@ -1,10 +1,8 @@
-import React, { Component, useState, useEffect } from 'react';
-import { Container, Row, Col } from "react-bootstrap";
-import { BrowserRouter, Routes, Route, Link , useParams } from "react-router-dom";
-import Film from './Film';
+import React, { useState, useEffect } from 'react';
+import { Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import cassete from './casette.png';
-import { height } from 'dom-helpers';
 
 const FilmsHeader = () => {
 return (

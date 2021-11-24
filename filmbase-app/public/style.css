@@ -53,7 +53,7 @@ a {
 }
 
 .filmsContainer {
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -79,8 +79,14 @@ a {
     padding: 1pc;
 }
 
+.searchBar {
+    min-height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+
 .footer {
-    padding: 1pc;
+    padding: 3vh;
     font-size: medium;
     background-color: #1d3557;
     text-align: right;

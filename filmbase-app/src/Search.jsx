@@ -14,7 +14,7 @@ const Search = () => {
   }
 
   return (
-      <Container>
+      <Container fluid className="searchBar">
         <h1 style={{textAlign: "center", margin: "2pc"}}> Search films </h1>
         
         <form onSubmit={handleSubmit}>
