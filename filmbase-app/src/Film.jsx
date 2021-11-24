@@ -1,22 +1,25 @@
 import React, { Component, useEffect, useState, initialState } from "react";
-import { Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import axios from 'axios'
 
 function FilmDiv(props) {
     return (
-        <div>
+        <Container fluid>
+            <Row>
+              <Col sm = {4}>IMG</Col>
+              <Col sm = {8}>{props.data.title}</Col>
+            </Row>
             <Row>{props.data.avgGrade}</Row>
-            <Row>{props.data.title}</Row>
             <Row>{props.data.premiereDate}</Row>
             <Row>{props.data.description}</Row>
-        </div>
+        </Container>
     )
   }
 
 //singular film rendering
 function Film() {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(Object);
 
   const { id } = useParams();
   
@@ -36,13 +39,7 @@ function Film() {
   }, [list]);
   
   return (
-    <div>
-      { <FilmDiv key={0} data={list}/>}
-      {/*
-      Object.keys(list).map((item, i) => (
-          <FilmDiv key={i} data={list}/>
-      ))*/} 
-    </div>
+    <FilmDiv key={0} data={list}/>
   )
 }
 

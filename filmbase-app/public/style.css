@@ -1,0 +1,87 @@
+body {
+    background-color: #457b9d !important;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-size: large;
+    color: white !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar-brand {
+    padding-left: 1rem;
+    color: #def2f1 !important;
+}
+
+.navbar-brand:hover {
+    color: #e63946 !important;
+}
+
+.navbar-custom {
+    background-color: #1d3557;
+}
+
+.nav-link {
+    color: #def2f1 !important;
+}
+
+.nav-link:hover {
+    color: #e63946!important;
+}
+
+.colHome {
+    background-image: url("img/curtain.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 720px;
+    filter: brightness(70%);
+    background-color: #3aafa9;
+}
+
+.colHome, a {
+    color: #feffff;
+    text-decoration: none;
+}
+
+.colHome:hover {
+    filter: brightness(100%);
+    color: #feffff;
+}
+
+.filmsContainer {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.filmDiv {
+    justify-content: center;
+    padding: 1pc;
+    color: white;
+    filter: brightness(100%);
+    border-style: solid;
+    border-width: 1px;
+    background-color: #1d3557;
+    margin: 1pc;
+}
+
+.filmDiv:hover {
+    filter: brightness(110%);
+}
+
+.filmInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1pc;
+}
+
+.footer {
+    padding: 1pc;
+    font-size: medium;
+    background-color: #1d3557;
+    text-align: right;
+}

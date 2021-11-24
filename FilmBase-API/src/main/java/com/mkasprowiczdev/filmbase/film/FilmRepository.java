@@ -15,4 +15,6 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
     @Modifying
     @Query("UPDATE film f set f.avgGrade = :avg WHERE f.id = :filmId")
     void setFilmAVG(@Param("filmId") long filmId, @Param("avg") double avg);
+
+    LinkedList<Film> findByTitle(String title);
 }

@@ -27,6 +27,11 @@ public class FilmController {
         return filmService.getFilm(Id);
     }
 
+    @GetMapping("/title/{Title}")
+    public LinkedList<Film> getFilmByTitle(@PathVariable String Title) {
+        return filmService.getFilmByTitle(Title);
+    }
+
     @GetMapping("/ranking/{page}")
     public LinkedList<Film> getRankingRange(@PathVariable int page) {
         return filmService.getFilmRanking(page);

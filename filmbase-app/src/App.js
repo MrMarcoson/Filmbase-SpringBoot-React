@@ -1,14 +1,16 @@
 import { Component } from "react";
 import { Container } from "react-bootstrap";
+import Footer from "./Footer.jsx";
 
 import NavigationBar from "./NavigationBar.jsx";
 
 class App extends Component {
   render() {
     return (
-      <Container fluid>
+      <div>
         <NavigationBar />
-      </Container>
+        <Footer />
+      </div>
     )
   }
 }

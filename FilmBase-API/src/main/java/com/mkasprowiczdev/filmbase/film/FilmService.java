@@ -25,6 +25,10 @@ public class FilmService {
         return filmRepository.findById(Id);
     }
 
+    public LinkedList<Film> getFilmByTitle(String title) {
+        return filmRepository.findByTitle(title);
+    }
+
     public LinkedList<Film> getFilmRanking(int page) {
         Pageable sortedByAVGGrade = PageRequest.of(page, 20, Sort.by("avgGrade").descending());
         Page<Film> filmPage = filmRepository.findAll(sortedByAVGGrade);
