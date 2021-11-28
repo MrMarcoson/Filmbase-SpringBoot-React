@@ -11,7 +11,7 @@ import Search from "./Search.jsx";
 import Login from "./Login.jsx";
 
 const App = () => {
-  const[user, setUser] = useState("witam");
+  const[user, setUser] = useState();
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
 
     return (

@@ -7,6 +7,7 @@ import java.util.LinkedList;
 
 @RestController
 @RequestMapping("/api/user")
+@CrossOrigin
 public class UserController {
 
     @Autowired
