@@ -1,21 +1,45 @@
 import React, { Component, useEffect, useState, initialState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Image  } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import axios from 'axios'
+import cassete from './casette.png';
+import Grade from "./Grade";
+
+const GradeHeader = (props) => {
+  return (
+      <div className="gradeHeader">
+          <div className="circle"><p>{props.data}</p></div>
+      </div>
+  )
+}
 
 function FilmDiv(props) {
-    return (
-        <Container fluid>
-            <Row>
-              <Col sm = {4}>IMG</Col>
-              <Col sm = {8}>{props.data.title}</Col>
+  return (
+    <Container className="filmSelected">
+      <h1 style={{textAlign: "center", margin: "2pc"}}> {props.data.title} </h1>
+      <Row>
+        <Col sm = {1}/>
+        <Col sm = {4}><Image  src={cassete} fluid /></Col>
+        <Col sm = {1}/>
+        <Col>
+            <Row> 
+              <GradeHeader data={props.data.avgGrade}/> 
             </Row>
-            <Row>{props.data.avgGrade}</Row>
-            <Row>{props.data.premiereDate}</Row>
-            <Row>{props.data.description}</Row>
-        </Container>
-    )
-  }
+
+            <Row> 
+              <Grade/> 
+            </Row>
+        </Col>
+      </Row>
+      <Row><h4 style={{ marginTop: "3vh"}}>Date of premiere: {props.data.premiereDate}</h4></Row>
+      <Row>
+        <div className="desc">
+          {props.data.description}
+        </div>
+      </Row>
+    </Container>
+  )
+}
 
 //singular film rendering
 function Film() {
@@ -26,7 +50,6 @@ function Film() {
   useEffect(() => { 
     axios.get("http://localhost:8080/api/film/" + id)
     .then(res => {
-      console.log(res.data)
       setList(res.data)
     })
     .catch(err => {
@@ -34,12 +57,8 @@ function Film() {
     })
   }, [setList]);
 
-  useEffect(() => {
-    console.log({ list });
-  }, [list]);
-  
   return (
-    <FilmDiv key={0} data={list}/>
+    <FilmDiv data={list}/>
   )
 }
 

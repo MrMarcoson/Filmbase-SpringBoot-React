@@ -15,6 +15,19 @@ return (
     )
 }
 
+const Dumm = () => {
+    return (
+        <Link to={`/film/${0}`}>
+        <Row className = "filmDiv">
+            <Col className="filmInfo" ><img src={cassete} style={{width: "64px", height: "128px"}}/></Col>
+            <Col className="filmInfo">{10}</Col>
+            <Col className="filmInfo">{"xddd"}</Col>
+            <Col className="filmInfo">{2000}</Col>
+        </Row>
+        </Link>
+        )
+    }
+
 const FilmDiv = (props) => {
 return (
     <Link to={`/film/${props.data.id}`}>

@@ -22,6 +22,11 @@ public class UserController {
         return userService.getUser(Id);
     }
 
+    @GetMapping("/{login}/{password}")
+    User getUser(@PathVariable  String login, @PathVariable String password) {
+        return userService.getUser(login, password);
+    }
+
     @PostMapping("/add")
     void addUser(@RequestBody User user) {
         userService.addUser(user);

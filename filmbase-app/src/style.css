@@ -1,0 +1,201 @@
+body {
+    background-color: white !important;
+    font-size: large;
+    color: black !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar-brand {
+    padding-left: 1rem;
+    color: #def2f1 !important;
+}
+
+.navbar-brand:hover {
+    color: #e14658 !important;
+}
+
+.navbar-custom {
+    background-color: #222b2c;
+}
+
+.nav-link {
+    color: #def2f1 !important;
+}
+
+.nav-link:hover {
+    color: #e14658!important;
+}
+
+.colHome {
+    background-image: url("img/curtain.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 720px;
+    filter: brightness(70%);
+}
+
+.colHome, a {
+    color: #feffff;
+    text-decoration: none;
+}
+
+.colHome:hover {
+    filter: brightness(100%);
+    color: #feffff;
+}
+
+.filmsContainer {
+    width: 80%;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.filmDiv {
+    justify-content: center;
+    padding: 1vh;
+    color: white;
+    border-style: solid;
+    border-width: 1px;
+    background-color: #e14658;
+    margin: 1pc;
+    transition: 0.3s;
+}
+
+.filmDiv:hover {
+    color: white;
+    background-color: #222b2c;
+}
+
+.filmInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1pc;
+}
+
+.filmSelected {
+    white-space: pre-wrap;
+}
+
+form {
+    margin: 3pc;
+}
+
+.searchText {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #e14658;
+    color: black;
+    padding: 10px;
+    font-size: large;
+    margin: 10px !important;
+    width: 80pc !important;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+.applyBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1pc;
+}
+
+button {
+    background: transparent;
+    border: 2px solid #e14658;
+    color: #e14658;
+    text-decoration: none;
+    width: 10pc !important;
+    height: 3pc;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #e14658;
+    border: 2px solid white;
+    color: white;
+}
+
+.footer {
+    padding: 3vh;
+    font-size: medium;
+    background-color: #222b2c;
+    text-align: right;
+    color: white;
+}
+
+.desc {
+    font-size: large;
+    padding-top: 3vh;
+    padding-bottom: 4vh;
+}
+
+.gradeHeader {
+    text-align: center;
+    color: white;
+    padding-top: 4vh;
+}
+
+.circle {
+    font-size: xx-large;
+    margin: auto;
+    width: 20vh;
+    line-height: 20vh;
+    background: #e14658;
+    border-radius: 50%
+}
+
+.circle p {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.stars {
+    text-align: center;
+}
+
+.star, .starChecked {
+    height: 4vh;
+    width: 4vh;
+    margin: 1vh;
+    background-color: white;
+    border: 2px solid #e14658;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.starChecked {
+    background-color: #e14658;
+}
+
+.loginWindow {
+    display: flex;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.loginWindow form {
+    background-color: #def2f1;
+    padding: 10vh;
+    padding-left: 20vh;
+    padding-right: 20vh;
+    box-shadow: 5px 10px #d1d1d1;
+    margin-bottom: 10vh;
+}
+
+.loginWindow input {
+    margin-bottom: 1vh;
+}

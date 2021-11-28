@@ -32,6 +32,11 @@ public class FilmController {
         return filmService.getFilmByTitle(Title);
     }
 
+    @GetMapping("/ranking/max_pages")
+    public Integer getRankingPagesNumber() {
+        return filmService.getRankingPagesNum();
+    }
+
     @GetMapping("/ranking/{page}")
     public LinkedList<Film> getRankingRange(@PathVariable int page) {
         return filmService.getFilmRanking(page);
