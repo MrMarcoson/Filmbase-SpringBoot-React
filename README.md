@@ -8,6 +8,6 @@ This is still work in progress, as I need to implement safe login, adding images
 
 ![image](https://user-images.githubusercontent.com/67783947/143780014-4fa6bdd5-02e8-418a-b2b2-bd2473b0e2ff.png)
 
-![image](https://user-images.githubusercontent.com/67783947/143780036-391e38ee-beb7-4f76-87f4-5002b4553400.png)
+![image](https://user-images.githubusercontent.com/67783947/143780160-a7d6bd34-9e4d-4c09-91dc-37e9730ea713.png)
 
-![image](https://user-images.githubusercontent.com/67783947/143780069-1202436e-ee1c-4f96-b9ea-4d1691f17269.png)
+![image](https://user-images.githubusercontent.com/67783947/143780142-548f4f19-1412-4f79-9e62-d3e9c63ce391.png)
